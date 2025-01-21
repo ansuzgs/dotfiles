@@ -32,19 +32,17 @@ return {
             })
 
             lspconfig.clangd.setup({
-                capabilities = capabilities
+                capabilities = capabilities,
+                cmd = { "clangd" },
+                root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+                init_options = {
+                    compilationDatabasePath = ".",
+                }
             })
 
             lspconfig.autotools_ls.setup({
                 capabilities = capabilities
             })
-
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-            vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-            vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-            vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
         end,
     },
 }

@@ -13,6 +13,8 @@ vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 
+vim.keymap.set("n", "<leader>ld", vim.diagnostic.setloclist, { desc = "Show buffer diagnostics" })
+
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.wo.relativenumber = true
 vim.cmd("set nu rnu")
